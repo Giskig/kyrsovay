@@ -15,10 +15,9 @@ if (!isset($title)) {
 <body>
     <div class="header">
         <div class="nav">
-            <h1><a href="index.php" style="color: white; text-decoration: none;">Лагерь Смена</a></h1>
+            <h1><a href="index.php" ><img src="img/smena-logo.png" style="width: 200px; height: 30px; margin-top: 10px"></a></h1>
             <div class="nav-links">
                 <?php if (isLoggedIn()): ?>
-                    <span>Добро пожаловать, <?php echo $_SESSION['user_name']; ?>!</span>
                     <a href="index.php">Главная</a>
                     <a href="profile.php">Профиль</a>
                     <a href="index.php?logout=true">Выйти</a>

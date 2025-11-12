@@ -93,7 +93,6 @@ $error = $_GET['error'] ?? '';
 $title = "Управление новостями - Лагерь Смена";
 require_once 'header.php';
 ?>
-
 <div class="container">
     <h2>Управление новостями</h2>
     
@@ -106,14 +105,14 @@ require_once 'header.php';
     <?php endif; ?>
 
     <div class="management-header">
-        <div class="news-actions">
+        <div>
             <a href="add_news.php" class="btn btn-primary">Добавить новость</a>
             <?php if (getUserRole() == 1): ?>
                 <a href="moderation.php" class="btn btn-warning">Панель модерации</a>
             <?php endif; ?>
         </div>
         
-        <div class="role-info">
+        <div>
             <?php if (getUserRole() == 1): ?>
                 <span class="role-badge admin">👑 Администратор</span>
                 <small>Вы можете управлять всеми новостями</small>

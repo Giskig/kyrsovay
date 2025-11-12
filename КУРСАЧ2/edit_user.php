@@ -97,7 +97,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['edit_user'])) {
 $title = "Редактирование пользователя - Лагерь Смена";
 require_once 'header.php';
 ?>
-
 <div class="container">
     <div class="breadcrumbs">
         <a href="manage_users.php">← Назад к управлению пользователями</a>
@@ -113,8 +112,8 @@ require_once 'header.php';
         <div class="alert alert-error"><?php echo $error; ?></div>
     <?php endif; ?>
 
-    <div class="user-info-card">
-        <div class="user-header">
+    <div>
+        <div>
             <h3><?php echo htmlspecialchars($user['name'] . ' ' . $user['lastname']); ?></h3>
             <span class="role-badge role-<?php echo $user['role_id']; ?>">
                 <?php echo htmlspecialchars($user['role_title']); ?>

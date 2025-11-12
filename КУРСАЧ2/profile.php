@@ -49,13 +49,10 @@ if ($role_id == 1) {
 $title = "Профиль - Лагерь Смена";
 require_once 'header.php';
 ?>
-
-
-
 <div class="container">
     <div class="profile-header">
-        <h2>Профиль пользователя</h2>
-        <div class="user-info">
+        <h2 style="color: black;">Профиль пользователя</h2>
+        <div>
             <p><strong>Имя:</strong> <?php echo $_SESSION['user_name'] . ' ' . $_SESSION['user_lastname']; ?></p>
             <p><strong>Логин:</strong> <?php echo $_SESSION['login']; ?></p>
             <p><strong>Роль:</strong> 
@@ -94,7 +91,7 @@ require_once 'header.php';
         <div class="profile-section">
             <h3>Функции ученика</h3>
             <a href="suggest_news.php" class="btn btn-primary">📨 Предложить новость</a>
-            <p class="student-info-text">
+            <p>
                 Как ученик, вы можете предлагать новости, которые будут отправлены на модерацию администратору.
                 После проверки ваша новость может быть опубликована на главной странице.
             </p>
@@ -104,7 +101,6 @@ require_once 'header.php';
     <!-- Блок с новостями пользователя - для ВСЕХ ролей -->
     <div class="profile-section">
         <h3>Мои новости</h3>
-        
         <?php if (empty($user_news)): ?>
             <div class="empty-state">
                 <p>У вас пока нет новостей.</p>
@@ -115,7 +111,7 @@ require_once 'header.php';
                 <?php endif; ?>
             </div>
         <?php else: ?>
-            <div class="user-news-list">
+            <div>
                 <?php foreach ($user_news as $news): ?>
                     <div class="user-news-item">
                         <div class="news-header">
@@ -132,20 +128,20 @@ require_once 'header.php';
                                 ?>
                             </span>
                         </div>
-                        
-                        <div class="news-details">
+
+                        <div>
                             <p><strong>Категория:</strong> <?php echo htmlspecialchars($news['category_title']); ?></p>
                             <p><strong>Дата создания:</strong> <?php echo $news['date_relise']; ?></p>
                             <p><strong>Текст:</strong> <?php echo htmlspecialchars($news['text']); ?></p>
                         </div>
                         
-                        <div class="news-actions">
+                        <div>
                             <?php if (canEditNews($news['id_user'])): ?>
                                 <a href="edit_news.php?id=<?php echo $news['id_nwes']; ?>" class="btn btn-small">Редактировать</a>
                             <?php endif; ?>
                             
                             <?php if ($role_id == 3): ?>
-                                <span class="student-note">
+                                <span>
                                     <?php if ($news['id_status'] == 1): ?>
                                         ⏳ Ожидает проверки администратором
                                     <?php elseif ($news['id_status'] == 2): ?>
@@ -160,7 +156,7 @@ require_once 'header.php';
                 <?php endforeach; ?>
             </div>
             
-            <div class="news-stats">
+            <div >
                 <p><strong>Всего новостей:</strong> <?php echo count($user_news); ?></p>
                 <?php 
                 $published_count = 0;
@@ -185,9 +181,9 @@ require_once 'header.php';
     <div class="profile-section">
         <h3>История входов</h3>
         <?php if (!empty($login_history)): ?>
-            <div class="login-history">
+            <div>
                 <?php foreach ($login_history as $entry): ?>
-                    <div class="login-entry">
+                    <div>
                         📅 Дата входа: <?php echo $entry['entry_date']; ?>
                     </div>
                 <?php endforeach; ?>

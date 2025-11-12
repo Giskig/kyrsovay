@@ -22,19 +22,39 @@ $news = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $title = "Лагерь Смена";
 require_once 'header.php';
 ?>
+<div class="public-welcome">
+    <div class="public-welcome-text">
+        <h1>Добро пожаловать в лагерь "Смена"! 🏕️</h1>
+        <p>Место, где происходят удивительные события, творческие открытия и спортивные достижения</p>
+        
+        <!-- Добавляем блоки со статистикой -->
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-number">2500</div>
+                <div class="stat-label">обучабщихся</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">116</div>
+                <div class="stat-label">объединенний по интересам</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">~ 12000</div>
+                <div class="stat-label">положительных отзывов</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="objects">
+    <p>блок о нас</p>
+    <img src="img/star.png" class="moving-image" id="movingImage">
+</div>
 
 <div class="container">
-    <!-- Публичный приветственный блок -->
-    <div class="public-welcome">
-        <h1>Добро пожаловать в лагерь "Смена"! 🏕️</h1>
-        <p class="welcome-subtitle">Место, где происходят удивительные события, творческие открытия и спортивные достижения</p>
-        
-    </div>
-
     <!-- Блок с новостями (доступен всем) -->
     <div class="news-section">
         <div class="section-header">
-            <h2>📰 Последние новости лагеря</h2>
+            <h2 style=" color: white;">📰 Последние новости</h2>
         </div>
 
         <?php if (empty($news)): ?>
@@ -49,15 +69,15 @@ require_once 'header.php';
             <div class="news-grid-main">
                 <?php foreach ($news as $item): ?>
                     <div class="news-card-main">
-                        <div class="news-category"><?php echo htmlspecialchars($item['category_title']); ?></div>
+                        <h2 class="news-category"><?php echo htmlspecialchars($item['category_title']); ?></h2>
                         <h3 class="news-title">
                             <a href="news_detail.php?id=<?php echo $item['id_nwes']; ?>">
                                 <?php echo htmlspecialchars($item['title']); ?>
                             </a>
                         </h3>
                         <div class="news-meta">
-                            <span class="news-author">👤 <?php echo htmlspecialchars($item['name'] . ' ' . $item['lastname']); ?></span>
-                            <span class="news-date">📅 <?php echo $item['date_relise']; ?></span>
+                            <span >👤 <?php echo htmlspecialchars($item['name'] . ' ' . $item['lastname']); ?></span>
+                            <span >📅 <?php echo $item['date_relise']; ?></span>
                         </div>
                         <div class="news-content-preview">
                             <?php 
@@ -96,3 +116,18 @@ require_once 'header.php';
     </div>
 </div>
 
+<script>
+const image = document.getElementById('movingImage');
+const stopScroll = 800;
+
+window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    const effectiveScroll = Math.min(scrolled, stopScroll);
+    
+    const moveX = effectiveScroll * 0.9;
+    const moveY = -effectiveScroll * 0.4;
+    const scale = 1 + (effectiveScroll * 0.001);
+    
+    image.style.transform = `translate(calc(-50% + ${moveX}px), calc(-50% + ${moveY}px)) scale(${scale})`;
+});
+</script>

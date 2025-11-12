@@ -113,7 +113,6 @@ require_once 'header.php';
 </head>
 <body>
 
-
     <div class="container">
         <h2>Редактировать новость</h2>
         
@@ -163,7 +162,7 @@ require_once 'header.php';
                 </select>
             </div>
             <?php endif; ?>
-            
+
             <div class="form-group">
                 <label for="text">Текст новости:</label>
                 <textarea id="text" name="text" required rows="10" placeholder="Введите полный текст новости..."><?php echo htmlspecialchars($news_item['text']); ?></textarea>

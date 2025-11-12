@@ -26,8 +26,8 @@ require_once 'header.php';
 ?>
 
 <div class="container">
-    <div class="login-page">
-        <div class="login-form-container">
+    <div>
+        <div>
             <h2>Вход в систему</h2>
             
             <?php if ($error): ?>
@@ -47,27 +47,27 @@ require_once 'header.php';
                            placeholder="Введите ваш пароль">
                 </div>
                 
-                <button type="submit" class="btn btn-primary btn-large">Войти в систему</button>
+                <button type="submit">Войти в систему</button>
             </form>
 
-            <div class="login-links">
+            <div>
                 <a href="index.php">← Вернуться на главную</a>
             </div>
 
-            <div class="test-accounts">
+            <div>
                 <h4>Тестовые аккаунты:</h4>
-                <div class="accounts-grid">
-                    <div class="account-card">
+                <div>
+                    <div>
                         <strong>Администратор</strong>
                         <span>: admin</span>
                         <span>Пароль: admin123</span>
                     </div>
-                    <div class="account-card">
+                    <div>
                         <strong>Преподаватель</strong>
                         <span>: teacher</span>
                         <span>Пароль: teacher123</span>
                     </div>
-                    <div class="account-card">
+                    <div>
                         <strong>Ученик</strong>
                         <span>: student</span>
                         <span>Пароль: student123</span>

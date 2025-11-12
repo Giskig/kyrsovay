@@ -92,7 +92,6 @@ require_once 'header.php';
 </head>
 <body>
 
-
     <div class="container">
         <h2>Панель модерации</h2>
         
