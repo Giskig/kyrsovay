@@ -45,9 +45,30 @@ require_once 'header.php';
     </div>
 </div>
 
-<div class="objects">
-    <p>блок о нас</p>
+<div>
     <img src="img/star.png" class="moving-image" id="movingImage">
+</div>
+
+<div class="about">
+    <h3>Про нас</h3>
+    <div class="about-content">
+        <div class="about-card">
+            <div class="news-card-about">
+                что то важное
+            </div>
+            <div class="news-card-about">
+                что то важное
+            </div>
+            <div class="news-card-about">
+                что то важное
+            </div>
+        </div>
+        <div class="about-text">
+            <p>Интересна история государственного бюджетного учреждения 
+                дополнительного образования «Дворец учащейся молодежи «Смена», 
+                начинавшаяся в пятидесятые годы прошлого века.</p>
+        </div>
+    </div>
 </div>
 
 <div class="container">
@@ -118,16 +139,19 @@ require_once 'header.php';
 
 <script>
 const image = document.getElementById('movingImage');
-const stopScroll = 800;
+const stopScroll = 300; // Высота остановки
 
 window.addEventListener('scroll', () => {
     const scrolled = window.pageYOffset;
     const effectiveScroll = Math.min(scrolled, stopScroll);
+    const progress = effectiveScroll / stopScroll;
     
-    const moveX = effectiveScroll * 0.9;
-    const moveY = -effectiveScroll * 0.4;
-    const scale = 1 + (effectiveScroll * 0.001);
+    // Настройки анимации
+    const moveY = progress * 200;        // Движение вниз: 200px
+    const moveX = progress * 700;         // Минимум вбок: 30px
+    const rotation = progress * 180;     // Переворот: 180°
+    const scale = 1 + (progress * 1.5);  // Увеличение: до 2.5x
     
-    image.style.transform = `translate(calc(-50% + ${moveX}px), calc(-50% + ${moveY}px)) scale(${scale})`;
+    image.style.transform = `translate(calc(-50% + ${moveX}px), calc(-50% + ${moveY}px)) rotate(${rotation}deg) scale(${scale})`;
 });
 </script>

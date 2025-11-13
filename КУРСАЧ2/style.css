@@ -48,7 +48,7 @@ body {
     background-color: #8939ef85;
     border-radius: 20px;
     position: relative;
-    z-index: -2;
+    z-index: 1;
     
 }
 .news-meta {
@@ -255,7 +255,7 @@ body, p, div, span, li, strong, td, small {
     min-height: 532px;
     padding: 2rem;
     position: relative;
-    z-index: 1;
+    z-index: 2;
 }
 .public-welcome-text {
     margin-left: auto;
@@ -266,11 +266,12 @@ body, p, div, span, li, strong, td, small {
 .moving-image {
     position: fixed;
     top: 40%;
-    left: 50%;
-    width: 100px; /* или нужный размер */
+    left: 45%;
+    width: 100px;
     height: auto;
-    transform: translate(-50%, -50%) scale(1);
-    transition: transform 0.1s ease;
+    transform: translate(-50%, -50%) rotate(0deg) scale(1);
+    transition: transform 0.3s ease;
+    transform-style: preserve-3d;
 }
 .news-section {
     margin: 0;
@@ -288,6 +289,18 @@ body, p, div, span, li, strong, td, small {
     display: grid;
     gap: 2rem;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+}
+.news-card-about {
+    background: white;
+    border: 1px solid #e9ecef;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    max-width: 200px;
+    padding: 1.5rem;
+    transition: box-shadow 0.3s, transform 0.3s;
 }
 .news-card-main {
     background: white;
@@ -359,6 +372,40 @@ body, p, div, span, li, strong, td, small {
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     padding: 1.5rem;
     text-align: center;
+}
+.about{
+    color: #ffffff;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin: 0 auto;
+    max-width: 1500px;
+    padding: 2rem;
+    border-radius: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.about h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.about-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    color: #000000;
+}
+
+.about-card{
+    display: flex;
+    gap: 1rem;
+    width: 40%;
+}
+
+.about-text{
+    color: #ffffff;
+    width: 50%;
 }
 
 /* ========================= LOGIN ========================= */
@@ -639,13 +686,6 @@ body, p, div, span, li, strong, td, small {
 }
 
 /* ========================= EDIT_NEWS ========================= */
-
-
-
-
-
-
-
 .news-card {
     background: white;
     border-radius: 8px;
